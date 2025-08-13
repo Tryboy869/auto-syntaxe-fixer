@@ -8,91 +8,40 @@ Werkzeug==2.3.7
 # HTTP Requests and Async Support  
 requests==2.31.0
 aiohttp==3.8.6
-asyncio-throttle==1.0.2
-
-# Database and Storage
-sqlite3  # Built-in Python module
-
-# Data Processing and Validation
-dataclasses  # Built-in Python 3.7+
-typing-extensions==4.7.1
 
 # Security and Authentication
 cryptography==41.0.4
 
-# System and File Operations
-pathlib  # Built-in Python module
-tempfile  # Built-in Python module
-shutil   # Built-in Python module
-
-# Concurrent Processing
-concurrent.futures  # Built-in Python module
-
-# Logging and Monitoring
-logging  # Built-in Python module
-
-# Development and Testing (Optional)
-pytest==7.4.2
-pytest-asyncio==0.21.1
-
-# Production Server (Optional - for deployment)
+# Production Server
 gunicorn==21.2.0
-waitress==2.1.2
 
-# Environment Management (Optional)
+# Environment Management
 python-dotenv==1.0.0
 
-# Code Quality Tools (Optional - for development)
-black==23.7.0
-flake8==6.0.0
-mypy==1.5.1
+# Development and Testing (Optional)
+# Uncomment for development environment
+# pytest==7.4.2
+# pytest-asyncio==0.21.1
+# black==23.7.0
+# flake8==6.0.0
+# mypy==1.5.1
 
 # Git Integration (Optional)
-GitPython==3.1.32
+# GitPython==3.1.32
 
-# Monitoring and Health Checks (Optional)
-psutil==5.9.5
+# System Monitoring (Optional)  
+# psutil==5.9.5
 
-# Email Notifications (Optional)
-smtplib  # Built-in Python module
-
-# JSON and Configuration
-json  # Built-in Python module
-configparser  # Built-in Python module
-
-# Date and Time Utilities
-datetime  # Built-in Python module
-
-# Regular Expressions
-re  # Built-in Python module
-
-# Mathematical Operations
-hashlib  # Built-in Python module
-secrets  # Built-in Python module
-
-# Operating System Interface
-os       # Built-in Python module
-subprocess  # Built-in Python module
-
-# Collections and Data Structures
-collections  # Built-in Python module
-enum        # Built-in Python module
+# Note: The following are built-in Python modules and don't need installation:
+# - sqlite3, asyncio, concurrent.futures, logging, pathlib, tempfile
+# - shutil, dataclasses, typing, json, datetime, re, hashlib, secrets
+# - os, subprocess, collections, enum, smtplib, configparser
 
 # Minimal Requirements for Core Functionality:
 # - Flask>=2.3.0
 # - requests>=2.30.0
 # - aiohttp>=3.8.0
+# - gunicorn (for production deployment)
 # 
-# All other dependencies are either built-in Python modules
-# or optional enhancements for production deployment.
-
-# Installation Instructions:
+# Installation:
 # pip install -r requirements.txt
-#
-# For development:
-# pip install -r requirements.txt
-# pip install black flake8 mypy pytest pytest-asyncio
-#
-# For production:
-# pip install -r requirements.txt
-# pip install gunicorn psutil python-dotenv
