@@ -5,19 +5,3 @@
 # === CORE FRAMEWORK ===
 fastapi==0.104.1
 uvicorn==0.24.0
-
-# === HTTP ET WEBSOCKETS ===
-python-multipart==0.0.6
-
-# === OUTILS SYNTAX FIXING PYTHON NATIFS ===
-# Ces outils seront utilisés via Shell Champion pour Python uniquement
-black==23.11.0
-autopep8==2.0.4
-isort==5.12.0
-
-# === DEPLOYMENT RENDER COMPATIBLE ===
-gunicorn==21.2.0
-
-# === PYTHON COMPATIBILITY ===
-# Assure compatibilité Python 3.8+
-typing-extensions==4.8.0
