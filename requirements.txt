@@ -1,38 +1,21 @@
-# 🔧 Auto-Syntax-Fixer ILN - Dépendances optimisées
+# 🔧 Auto-Syntax-Fixer ILN - Dépendances Render optimisées
 # Architecture ILN Niveau 3 : Python Interface → Shell Champion
+# RENDER COMPATIBLE - No Rust dependencies
 
 # === CORE FRAMEWORK ===
 fastapi==0.104.1
-uvicorn[standard]==0.24.0
-uvloop==0.19.0
+uvicorn==0.24.0
 
 # === HTTP ET WEBSOCKETS ===
-websockets==12.0
 python-multipart==0.0.6
 
-# === PERFORMANCE OPTIMIZATIONS ===
-orjson==3.9.10
-
-# === OUTILS SYNTAX FIXING NATIFS ===
-# Ces outils seront utilisés via Shell Champion quand disponibles
+# === OUTILS SYNTAX FIXING PYTHON NATIFS ===
+# Ces outils seront utilisés via Shell Champion pour Python uniquement
 black==23.11.0
 autopep8==2.0.4
 isort==5.12.0
 
-# === OPTIONNELS JAVASCRIPT (si Node.js disponible) ===
-# eslint, prettier → gérés via Shell si npm installé
-
-# === UTILITIES ===
-pathlib2==2.3.7; python_version < "3.4"
-
-# === MONITORING & LOGS ===
-# Minimum pour production
-python-json-logger==2.0.7
-
-# === SECURITY ===
-python-jose[cryptography]==3.3.0
-
-# === DEPLOYMENT RENDER OPTIMIZATIONS ===
+# === DEPLOYMENT RENDER COMPATIBLE ===
 gunicorn==21.2.0
 
 # === PYTHON COMPATIBILITY ===
