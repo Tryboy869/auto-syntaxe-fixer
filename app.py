@@ -30,12 +30,9 @@ from datetime import datetime
 from fastapi import FastAPI, UploadFile, File, Form, HTTPException, WebSocket, WebSocketDisconnect
 from fastapi.responses import HTMLResponse, JSONResponse, FileResponse
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.staticfiles import StaticFiles
 import uvicorn
-import uvloop
 
-# Performance optimizations
-uvloop.install()
+# Note: uvloop removed for Render compatibility (no Rust dependencies)
 
 @dataclass
 class FixResult:
@@ -62,13 +59,9 @@ class ShellChampion:
         # Test de disponibilité via shell
         test_commands = {
             'black': 'black --version',
-            'eslint': 'eslint --version', 
-            'prettier': 'prettier --version',
-            'gofmt': 'gofmt -h',
-            'rustfmt': 'rustfmt --version',
-            'clang-format': 'clang-format --version',
             'autopep8': 'autopep8 --version',
             'isort': 'isort --version'
+            # Removed eslint, prettier, gofmt, rustfmt, clang-format for Render compatibility
         }
         
         for tool, cmd in test_commands.items():
@@ -99,12 +92,8 @@ class ShellChampion:
             commands = {
                 'black': ['black', '--quiet', temp_file],
                 'autopep8': ['autopep8', '--in-place', '--aggressive', temp_file],
-                'isort': ['isort', '--quiet', temp_file],
-                'eslint': ['eslint', '--fix', '--quiet', temp_file],
-                'prettier': ['prettier', '--write', temp_file],
-                'gofmt': ['gofmt', '-w', temp_file],
-                'rustfmt': ['rustfmt', temp_file],
-                'clang-format': ['clang-format', '-i', temp_file]
+                'isort': ['isort', '--quiet', temp_file]
+                # Removed external tools for Render compatibility
             }
             
             if tool not in commands:
@@ -555,7 +544,7 @@ class AutoSyntaxFixerILN3:
         <div class="upload-section" id="uploadZone" onclick="document.getElementById('fileInput').click()">
             <div style="font-size: 3rem; margin-bottom: 1rem;">📁</div>
             <h3>Drop files here or click to select</h3>
-            <p>Supports: Python, JavaScript, Go, Rust, Java, C++, TypeScript</p>
+            <p>Supports: Python (with tools), JavaScript, Go, Rust, Java, C++ (internal patterns)</p>
             <input type="file" id="fileInput" class="file-input" multiple accept=".py,.js,.jsx,.ts,.tsx,.go,.rs,.java,.cpp,.cc,.cxx,.c,.h">
         </div>
         
@@ -587,17 +576,17 @@ class AutoSyntaxFixerILN3:
             <div class="feature-card">
                 <div style="font-size: 2rem; margin-bottom: 0.5rem;">🟨</div>
                 <h4>JavaScript</h4>
-                <p>Semicolons, const/let, strict equality</p>
+                <p>Semicolons, const/let, strict equality (internal patterns)</p>
             </div>
             <div class="feature-card">
                 <div style="font-size: 2rem; margin-bottom: 0.5rem;">🔷</div>
                 <h4>Go</h4>
-                <p>Formatting, imports, conventions</p>
+                <p>Basic formatting and conventions (internal patterns)</p>
             </div>
             <div class="feature-card">
                 <div style="font-size: 2rem; margin-bottom: 0.5rem;">🦀</div>
-                <h4>Rust</h4>
-                <p>Ownership, lifetimes, formatting</p>
+                <h4>Other Languages</h4>
+                <p>Java, C++, TypeScript (intelligent internal patterns)</p>
             </div>
         </div>
         
@@ -617,10 +606,10 @@ class AutoSyntaxFixerILN3:
 Upload files or run demo to see the magic happen!
 
 === ILN ARCHITECTURE ===
-✅ Python Interface: Simple and familiar
-✅ Shell Champion: High-performance orchestration  
-✅ 7 Super-Motors: Unified processing power
-✅ Multi-language: Universal syntax support
+✅ Python Interface: Simple and familiar (with black, autopep8, isort)
+✅ Shell Champion: High-performance orchestration (Render optimized)
+✅ 7 Super-Motors: Unified processing power (internal patterns)
+✅ Multi-language: Universal syntax support (Python tools + internal)
             </div>
         </div>
     </div>
@@ -781,13 +770,13 @@ Upload files or run demo to see the magic happen!
         # Tentative avec Shell Champion si outils disponibles
         tool_mapping = {
             'python': ['black', 'autopep8', 'isort'],
-            'javascript': ['eslint', 'prettier'],
-            'typescript': ['eslint', 'prettier'],
-            'go': ['gofmt'],
-            'rust': ['rustfmt'],
-            'cpp': ['clang-format'],
-            'c': ['clang-format'],
-            'java': []  # Pas d'outils par défaut
+            'javascript': [],  # Internal patterns only for Render compatibility
+            'typescript': [],  # Internal patterns only
+            'go': [],          # Internal patterns only
+            'rust': [],        # Internal patterns only
+            'cpp': [],         # Internal patterns only
+            'c': [],           # Internal patterns only
+            'java': []         # Internal patterns only
         }
         
         tools_for_lang = tool_mapping.get(language, [])
@@ -1035,6 +1024,7 @@ def main():
             host=args.host,
             port=args.port,
             log_level="info"
+            # Removed loop parameter for Render compatibility
         )
     else:
         # Mode CLI
